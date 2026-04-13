@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuxeGlow Voorbeeld — Schoonheidssalon Amsterdam</title>
+  <meta name="description" content="LuxeGlow Voorbeeld is een exclusieve schoonheidssalon in Amsterdam. Ontdek onze premium huidverzorging, gezichtsbehandelingen en wellness rituelen.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <div class="container">
+    <a href="index.html" class="logo">Luxe<span>Glow</span></a>
+    <nav class="nav" id="nav">
+      <a href="#diensten">Behandelingen</a>
+      <a href="#over-ons">Over Ons</a>
+      <a href="#galerij">Galerij</a>
+      <a href="#faq">FAQ</a>
+      <a href="blog.html">Blog</a>
+      <a href="#contact" class="nav-cta">Afspraak Maken</a>
+    </nav>
+    <div class="nav-toggle" id="navToggle" aria-label="Menu openen">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i data-lucide="sparkles" style="width:14px;height:14px;"></i>
+        Premium Schoonheidssalon Amsterdam
+      </div>
+      <h1>Ontdek Jouw <em>Stralende</em> Schoonheid</h1>
+      <p>Welkom bij LuxeGlow, waar wetenschap en luxe samenkomen. Onze ervaren huidtherapeuten creeren op maat gemaakte behandelingen die jouw natuurlijke schoonheid laten stralen. Boek vandaag nog jouw persoonlijke consultatie.</p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn-primary">
+          <i data-lucide="calendar" style="width:18px;height:18px;"></i>
+          Boek Jouw Behandeling
+        </a>
+        <a href="#diensten" class="btn-outline">
+          <i data-lucide="arrow-down" style="width:18px;height:18px;"></i>
+          Bekijk Behandelingen
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+  <div class="ticker" style="background:var(--color-accent,#f5a623);padding:12px 0;overflow:hidden;">
+    <div style="display:flex;gap:48px;animation:tickerScroll 20s linear infinite;white-space:nowrap;">
+      <span><iconify-icon icon="lucide:sparkles"></iconify-icon> Gezicht</span><span><iconify-icon icon="lucide:hand"></iconify-icon> Massage</span><span><iconify-icon icon="lucide:palette"></iconify-icon> Nagels</span><span><iconify-icon icon="lucide:scissors"></iconify-icon> Waxing</span><span><iconify-icon icon="lucide:eye"></iconify-icon> Wimpers</span><span><iconify-icon icon="lucide:sun"></iconify-icon> Huidverbetering</span><span><iconify-icon icon="lucide:sparkles"></iconify-icon> Gezicht</span><span><iconify-icon icon="lucide:hand"></iconify-icon> Massage</span><span><iconify-icon icon="lucide:palette"></iconify-icon> Nagels</span><span><iconify-icon icon="lucide:scissors"></iconify-icon> Waxing</span><span><iconify-icon icon="lucide:eye"></iconify-icon> Wimpers</span><span><iconify-icon icon="lucide:sun"></iconify-icon> Huidverbetering</span>
+    </div>
+  </div>
+  <style>@keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}</style>
+  <style>.ticker span{display:inline-flex;align-items:center;gap:8px;font-size:0.85rem;font-weight:700;color:var(--color-bg,#0a0a0f);text-transform:uppercase;letter-spacing:0.05em;}</style>
+
+
+<!-- ============ SCROLL VIDEO (CANVAS) ============ -->
+<section class="scroll-video-section">
+  <div class="pin-wrap" id="scrollVideoPin">
+    <canvas id="scrollCanvas" width="1280" height="720"></canvas>
+    <div class="scroll-video-overlay">
+      <p><i data-lucide="mouse" style="width:16px;height:16px;display:inline;vertical-align:middle;margin-right:6px;"></i> Scroll om onze salon te ontdekken</p>
+    </div>
+  </div>
+</section>
+
+
+  <!-- ======================== BEFORE / AFTER ======================== -->
+  <section class="ba-section" style="height:100vh;position:relative;overflow:hidden;background:#000;">
+    <div style="width:100%;height:100%;position:relative;">
+      <img src="images/craft.jpg" alt="Na" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;">
+      <img src="images/hero.jpg" alt="Voor" id="baBefore" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:2;">
+      <div id="baLabel" style="position:absolute;z-index:3;bottom:10%;left:50%;transform:translateX(-50%);text-align:center;opacity:0;">
+        <span style="display:inline-block;background:var(--color-accent,#C1FF72);color:#0a0a0a;padding:8px 20px;border-radius:99px;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:16px;">Scroll om te zien</span>
+        <h2 style="font-size:clamp(2rem,5vw,3.5rem);font-weight:900;line-height:1.15;color:#fff;text-shadow:0 4px 20px rgba(0,0,0,0.6);">Van oud naar <em style="color:var(--color-accent,#C1FF72);">nieuw</em></h2>
+      </div>
+    </div>
+  </section>
+<!-- ============ SERVICES ============ -->
+<section class="services section" id="diensten">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="section-title">Onze <span class="accent">Behandelingen</span></h2>
+      <p class="section-subtitle">Van diepgaande gezichtsverzorging tot ontspannende wellness rituelen — elk bezoek is een luxe ervaring op maat.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal stagger-1">
+        <div class="service-icon"><i data-lucide="sparkles"></i></div>
+        <h3>Gezichtsbehandeling Deluxe</h3>
+        <p>Een uitgebreide gezichtsbehandeling met diepe reiniging, exfoliatie, serums en een verstevigende masker. Inclusief decollete en schouder massage voor ultieme ontspanning.</p>
+        <div class="service-price">Vanaf &euro;95</div>
+      </div>
+      <div class="service-card reveal stagger-2">
+        <div class="service-icon"><i data-lucide="hand"></i></div>
+        <h3>Huidverjonging &amp; Lifting</h3>
+        <p>Geavanceerde anti-aging behandeling met microstroom technologie en collageen-boostende ingredienten. Zichtbaar resultaat na slechts een sessie.</p>
+        <div class="service-price">Vanaf &euro;125</div>
+      </div>
+      <div class="service-card reveal stagger-3">
+        <div class="service-icon"><i data-lucide="palette"></i></div>
+        <h3>Permanente Make-up</h3>
+        <p>Natuurlijk ogende permanente make-up voor wenkbrauwen, eyeliner en lippen. Microblading en ombre poedertechniek door gecertificeerde specialisten.</p>
+        <div class="service-price">Vanaf &euro;195</div>
+      </div>
+      <div class="service-card reveal stagger-4">
+        <div class="service-icon"><i data-lucide="scissors"></i></div>
+        <h3>Waxing &amp; Ontharing</h3>
+        <p>Professionele ontharing met premium warme wax. Geschikt voor alle huidtypes. Langdurig gladde huid met minimale irritatie door onze verzorgende formules.</p>
+        <div class="service-price">Vanaf &euro;25</div>
+      </div>
+      <div class="service-card reveal stagger-5">
+        <div class="service-icon"><i data-lucide="eye"></i></div>
+        <h3>Wimper &amp; Wenkbrauw Styling</h3>
+        <p>Wimperextensions, wimperlifting, brow lamination en verven. Creeer de perfecte omlijsting voor jouw ogen met onze high-end producten en technieken.</p>
+        <div class="service-price">Vanaf &euro;45</div>
+      </div>
+      <div class="service-card reveal stagger-6">
+        <div class="service-icon"><i data-lucide="sun"></i></div>
+        <h3>Wellness Ritueel</h3>
+        <p>Een holistische wellness ervaring met aromatherapie massage, hot stones en een voedend lichaamsmasker. Twee uur pure ontspanning en vernieuwing.</p>
+        <div class="service-price">Vanaf &euro;149</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STATS ============ -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item reveal stagger-1">
+        <h3 id="stat1">0</h3>
+        <p>Tevreden Klanten</p>
+      </div>
+      <div class="stat-item reveal stagger-2">
+        <h3 id="stat2">0</h3>
+        <p>Jaar Ervaring</p>
+      </div>
+      <div class="stat-item reveal stagger-3">
+        <h3 id="stat3">0</h3>
+        <p>Behandelingen per Maand</p>
+      </div>
+      <div class="stat-item reveal stagger-4">
+        <h3 id="stat4">0</h3>
+        <p>Google Reviews</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT / TEAM ============ -->
+<section class="section" id="over-ons" style="background:var(--plum);">
+  <div class="container" style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+    <div class="reveal-left">
+      <img src="images/about.jpg" alt="Over LuxeGlow — ons team van huidtherapeuten" style="border-radius:var(--radius);box-shadow:0 20px 60px rgba(0,0,0,0.4);">
+    </div>
+    <div class="reveal-right">
+      <h2 class="section-title">Passie voor <span class="accent">Schoonheid</span></h2>
+      <p style="color:var(--text-muted);font-size:1rem;line-height:1.9;margin-bottom:20px;">Al meer dan 12 jaar is LuxeGlow de bestemming voor vrouwen en mannen in Amsterdam die het beste willen voor hun huid. Ons team van gecertificeerde huidtherapeuten combineert jarenlange ervaring met de nieuwste technieken en premium producten.</p>
+      <p style="color:var(--text-muted);font-size:1rem;line-height:1.9;margin-bottom:28px;">Wij geloven dat echte schoonheid van binnenuit komt, maar een beetje professionele hulp kan wonderen doen. Elk behandelplan wordt op maat samengesteld na een grondige huidanalyse.</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <div style="display:flex;align-items:center;gap:8px;color:var(--rose-gold);font-size:0.9rem;">
+          <i data-lucide="award" style="width:18px;height:18px;"></i> CIDESCO Gecertificeerd
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;color:var(--rose-gold);font-size:0.9rem;">
+          <i data-lucide="heart" style="width:18px;height:18px;"></i> Cruelty-Free Producten
+        </div>
+        <div style="display:flex;align-items:center;gap:8px;color:var(--rose-gold);font-size:0.9rem;">
+          <i data-lucide="shield-check" style="width:18px;height:18px;"></i> Dermatoloog Aanbevolen
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="testimonials section" id="reviews">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <h2 class="section-title">Wat Onze <span class="accent">Klanten</span> Zeggen</h2>
+      <p class="section-subtitle" style="margin-left:auto;margin-right:auto;">Meer dan 2.500 tevreden klanten gingen jou voor. Lees hun ervaringen.</p>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal stagger-1">
+        <div class="testimonial-stars">
+          <i data-lucide="star" style="width:16px;height:16px;fill:var(--rose-gold);"></i>
+          <i data-lucide="star" style="width:16px;height:16px;fill:var(--rose-gold);"></i>
+          <i data-lucide="star" style="width:16px;height:16px;fill:var(--rose-gold);"></i>
+          <i data-lucide="star" style="width:16px;height:16px;fill:var(--rose-gold);"></i>
+          <i data-lucide="star" style="width:16px;height:16px;fill:var(--rose-gold);"></i>
+        </div>
+        <blockquote>"Na jaren zoeken heb ik eindelijk een salon gevonden die echt naar mijn huid luistert. De gezichtsbehandelingen bij LuxeGlow zijn transformerend. Mijn huid is nog nooit zo stralend geweest!"</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">SB</div>
+          <div>
+            <strong>Sophie de Boer</strong><br>
+            <span>Vaste klant sinds 2022</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal stagger-2">
+        <div class="testimonial-stars">
+          <i data-lucide="star" style="width:16px;height:16px;fill:var(--rose-gold);"></i>
+          <i data-lucide="star" style="width:16px;height:16px;fill:var(--rose-gold);"></i>
+          <i data-lucide="star" style="width:16px;height:16px;fill:var(--rose-gold);"></i>
+          <i data-lucide="star" style="width:16px;height:16px;fill:var(--rose-gold);"></i>
+          <i data-lucide="star" style="width:16px;height:16px;fill:var(--rose-gold);"></i>
+        </div>
+        <blockquote>"De permanente make-up voor mijn wenkbrauwen is zo natuurlijk! Het team nam uitgebreid de tijd voor het ontwerp. Ik word dagelijks complimenten gegeven. Absolute aanrader voor iedereen."</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">LJ</div>
+          <div>
+            <strong>Lisa Jansen</strong><br>
+            <span>Microblading klant</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal stagger-3">
+        <div class="testimonial-stars">
+          <i data-lucide="star" style="width:16px;height:16px;fill:var(--rose-gold);"></i>
+          <i data-lucide="star" style="width:16px;height:16px;fill:var(--rose-gold);"></i>
+          <i data-lucide="star" style="width:16px;height:16px;fill:var(--rose-gold);"></i>
+          <i data-lucide="star" style="width:16px;height:16px;fill:var(--rose-gold);"></i>
+          <i data-lucide="star" style="width:16px;height:16px;fill:var(--rose-gold);"></i>
+        </div>
+        <blockquote>"Het wellness ritueel is een ervaring die ik iedereen gun. Twee uur lang word je in de watten gelegd. De combinatie van aromatherapie en hot stones is hemels. Ik kom elke maand terug!"</blockquote>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MV</div>
+          <div>
+            <strong>Marieke Visser</strong><br>
+            <span>Wellness ritueel liefhebber</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ GALLERY ============ -->
+<section class="gallery section" id="galerij">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <h2 class="section-title">Onze <span class="accent">Salon</span> in Beeld</h2>
+      <p class="section-subtitle" style="margin-left:auto;margin-right:auto;">Een kijkje in de wereld van LuxeGlow — waar luxe en vakmanschap samenkomen.</p>
+    </div>
+    <div class="gallery-grid reveal">
+      <div class="gallery-item"><img src="images/hero.jpg" alt="LuxeGlow salon interieur" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/craft.jpg" alt="Behandeling in uitvoering" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/project1.jpg" alt="Gezichtsbehandeling resultaat" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/project2.jpg" alt="Premium huidverzorgingsproducten" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/kitchen.jpg" alt="Salon werkruimte" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/detail.jpg" alt="Detail van behandeling" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/about.jpg" alt="Ons vakkundige team" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/team.jpg" alt="Team LuxeGlow" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/carousel.jpg" alt="Ontspanning en rust" loading="lazy"></div>
+      <div class="gallery-item"><img src="images/cta-bg.jpg" alt="Sfeervolle ambiance" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="faq section" id="faq">
+  <div class="container">
+    <div class="reveal" style="text-align:center;">
+      <h2 class="section-title">Veelgestelde <span class="accent">Vragen</span></h2>
+      <p class="section-subtitle" style="margin-left:auto;margin-right:auto;">Alles wat je wilt weten over onze behandelingen en salon.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          <h3>Hoe weet ik welke gezichtsbehandeling bij mij past?</h3>
+          <i data-lucide="plus" class="faq-icon" style="width:20px;height:20px;"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Bij elk eerste bezoek doen wij een grondige huidanalyse met professionele apparatuur. Op basis van jouw huidtype, wensen en eventuele huidproblemen stellen wij een persoonlijk behandelplan samen. Deze consultatie is geheel vrijblijvend en gratis.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          <h3>Hoe lang duurt een gemiddelde behandeling?</h3>
+          <i data-lucide="plus" class="faq-icon" style="width:20px;height:20px;"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Onze standaard gezichtsbehandelingen duren 60 tot 75 minuten. De deluxe variant is 90 minuten en het wellness ritueel duurt twee uur. Waxing en wenkbrauwbehandelingen zijn doorgaans 15 tot 45 minuten, afhankelijk van het gebied.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          <h3>Is permanente make-up pijnlijk?</h3>
+          <i data-lucide="plus" class="faq-icon" style="width:20px;height:20px;"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Wij gebruiken een verdovende creme die 20 minuten voor de behandeling wordt aangebracht. De meeste klanten ervaren minimaal ongemak. Na de behandeling kan de huid licht rood en gevoelig zijn, maar dit trekt binnen 24-48 uur weg.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          <h3>Welke producten gebruiken jullie?</h3>
+          <i data-lucide="plus" class="faq-icon" style="width:20px;height:20px;"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Wij werken uitsluitend met premium, dermatoloog-geteste merken zoals Dermalogica, Environ en iS Clinical. Al onze producten zijn cruelty-free en vrij van parabenen. Tijdens je behandeling adviseren wij ook een thuisverzorgingsroutine.</p>
+        </div>
+      </div>
+      <div class="faq-item reveal">
+        <div class="faq-question">
+          <h3>Kan ik een afspraak online boeken?</h3>
+          <i data-lucide="plus" class="faq-icon" style="width:20px;height:20px;"></i>
+        </div>
+        <div class="faq-answer">
+          <p>Jazeker! Via onze online agenda kun je 24/7 een afspraak inplannen. Je ontvangt direct een bevestiging per e-mail. Wil je liever telefonisch boeken? Bel ons op 020-123 4567 tijdens openingstijden (ma-za 9:00-18:00).</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section" id="contact">
+  <div class="cta-bg"></div>
+  <div class="cta-overlay"></div>
+  <div class="container">
+    <div class="reveal">
+      <h2>Klaar voor Jouw <span class="accent">Glow-Up</span>?</h2>
+      <p>Boek vandaag nog jouw persoonlijke consultatie en ontdek wat LuxeGlow voor jouw huid kan betekenen. Eerste consultatie gratis.</p>
+      <a href="#" class="btn-primary" style="margin:0 auto;">
+        <i data-lucide="calendar" style="width:18px;height:18px;"></i>
+        Plan Jouw Afspraak
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Luxe<span>Glow</span></a>
+        <p>Al meer dan 12 jaar de bestemming voor premium huidverzorging en schoonheidsbehandelingen in Amsterdam. Waar wetenschap en luxe samenkomen.</p>
+        <div style="display:flex;gap:12px;margin-top:20px;">
+          <a href="#" style="width:36px;height:36px;background:rgba(201,150,126,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--rose-gold);"><i data-lucide="instagram" style="width:16px;height:16px;"></i></a>
+          <a href="#" style="width:36px;height:36px;background:rgba(201,150,126,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--rose-gold);"><i data-lucide="facebook" style="width:16px;height:16px;"></i></a>
+          <a href="#" style="width:36px;height:36px;background:rgba(201,150,126,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--rose-gold);"><i data-lucide="phone" style="width:16px;height:16px;"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Behandelingen</h4>
+        <ul>
+          <li><a href="#diensten">Gezichtsbehandeling</a></li>
+          <li><a href="#diensten">Huidverjonging</a></li>
+          <li><a href="#diensten">Permanente Make-up</a></li>
+          <li><a href="#diensten">Waxing</a></li>
+          <li><a href="#diensten">Wimper Styling</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Informatie</h4>
+        <ul>
+          <li><a href="#over-ons">Over Ons</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="#faq">Veelgestelde Vragen</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#"><i data-lucide="map-pin" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:6px;"></i>Keizersgracht 123, Amsterdam</a></li>
+          <li><a href="tel:0201234567"><i data-lucide="phone" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:6px;"></i>020-123 4567</a></li>
+          <li><a href="mailto:info@luxeglow.nl"><i data-lucide="mail" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:6px;"></i>info@luxeglow.nl</a></li>
+          <li><a href="#"><i data-lucide="clock" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:6px;"></i>Ma-Za: 9:00 - 18:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 LuxeGlow Voorbeeld. Alle rechten voorbehouden.</p>
+      <p>Website door <a href="https://www.studiolee.nl" target="_blank" rel="noopener">StudioLee</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ STUDIOLEE BADGE ============ -->
+<a href="https://www.studiolee.nl/schoonheidssalons" class="studiolee-badge" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+  Website door StudioLee
+</a>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Initialize Lucide icons
+  lucide.createIcons();
+
+  // GSAP + ScrollTrigger
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Header scroll behavior
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const nav = document.getElementById('nav');
+  navToggle.addEventListener('click', () => {
+    nav.classList.toggle('open');
+  });
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+
+  // Scroll Reveal via GSAP
+  const reveals = document.querySelectorAll('.reveal, .reveal-left, .reveal-right');
+  reveals.forEach(el => {
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 85%',
+      onEnter: () => el.classList.add('active'),
+    });
+  });
+
+  // Scroll Video Canvas — 121 frames
+  const canvas = document.getElementById('scrollCanvas');
+  const ctx = canvas.getContext('2d');
+  const frameCount = 121;
+  const getFrameSrc = i => 'images/frames/frame-' + String(i).padStart(3, '0') + '.jpg';
+  const images = [];
+  let loadedCount = 0;
+
+  // Preload frames
+  for (let i = 0; i < frameCount; i++) {
+    const img = new Image();
+    img.src = currentFrame(i);
+    img.onload = () => {
+      loadedCount++;
+      if (loadedCount === 1) renderFrame(0);
+    };
+    images.push(img);
+  }
+
+  function renderFrame(index) {
+    if (!images[index] || !images[index].complete) return;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    // Draw with cover-fit
+    const hRatio = canvas.width / images[index].width;
+    const vRatio = canvas.height / images[index].height;
+    const ratio = Math.max(hRatio, vRatio);
+    const cx = (canvas.width - images[index].width * ratio) / 2;
+    const cy = (canvas.height - images[index].height * ratio) / 2;
+    ctx.drawImage(images[index], 0, 0, images[index].width, images[index].height, cx, cy, images[index].width * ratio, images[index].height * ratio);
+  }
+
+  // Fallback: show first salon image on canvas if no frames
+  const fallbackImg = new Image();
+  fallbackImg.src = 'images/craft.jpg';
+  fallbackImg.onload = () => {
+    if (loadedCount === 0) {
+      const hRatio = canvas.width / fallbackImg.width;
+      const vRatio = canvas.height / fallbackImg.height;
+      const ratio = Math.max(hRatio, vRatio);
+      const cx = (canvas.width - fallbackImg.width * ratio) / 2;
+      const cy = (canvas.height - fallbackImg.height * ratio) / 2;
+      ctx.drawImage(fallbackImg, 0, 0, fallbackImg.width, fallbackImg.height, cx, cy, fallbackImg.width * ratio, fallbackImg.height * ratio);
+    }
+  };
+
+  // GSAP scroll-driven frame animation
+  const frameAnim = { frame: 0 };
+  gsap.to(frameAnim, {
+    frame: frameCount - 1,
+    snap: 'frame',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.scroll-video-section',
+      pin: true,
+      scrub: 1,
+      end: '+=600%',
+    },
+    onUpdate: () => renderFrame(Math.round(frameAnim.frame)),
+  });
+
+  // Counter animations
+  function animateCounter(id, target, suffix = '') {
+    const el = document.getElementById(id);
+    if (!el) return;
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 85%',
+      onEnter: () => {
+        gsap.to({ val: 0 }, {
+          val: target,
+          duration: 2,
+          ease: 'power2.out',
+          onUpdate: function() {
+            el.textContent = Math.round(this.targets()[0].val).toLocaleString('nl-NL') + suffix;
+          }
+        });
+      },
+      once: true
+    });
+  }
+  animateCounter('stat1', 2500, '+');
+  animateCounter('stat2', 12, '');
+  animateCounter('stat3', 480, '+');
+  animateCounter('stat4', 4.9, '');
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasActive = item.classList.contains('active');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+      if (!wasActive) item.classList.add('active');
+    });
+  });
+
+  // Gallery hover GSAP animation
+  document.querySelectorAll('.gallery-item').forEach(item => {
+    item.addEventListener('mouseenter', () => {
+      gsap.to(item, { scale: 1.03, duration: 0.3, ease: 'power2.out' });
+    });
+    item.addEventListener('mouseleave', () => {
+      gsap.to(item, { scale: 1, duration: 0.3, ease: 'power2.out' });
+    });
+  });
+
+  // Service cards GSAP hover
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      gsap.to(card.querySelector('.service-icon'), { rotate: 10, scale: 1.15, duration: 0.3 });
+    });
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card.querySelector('.service-icon'), { rotate: 0, scale: 1, duration: 0.3 });
+    });
+  });
+
+  // Parallax hero background
+  gsap.to('.hero-bg', {
+    yPercent: 30,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.hero',
+      start: 'top top',
+      end: 'bottom top',
+      scrub: true,
+    }
+  });
+
+  // Testimonial card stagger entrance
+  gsap.from('.testimonial-card', {
+    y: 60,
+    opacity: 0,
+    stagger: 0.15,
+    duration: 0.8,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.testimonials-grid',
+      start: 'top 80%',
+    }
+  });
+
+  // Stats number glow pulse
+  gsap.to('.stat-item h3', {
+    textShadow: '0 0 20px rgba(201,150,126,0.5)',
+    repeat: -1,
+    yoyo: true,
+    duration: 2,
+    ease: 'sine.inOut'
+  });
+});
+</script>
+
+
+    // Before/After slider
+    (function() {
+      var before = document.getElementById('baBefore');
+      var label = document.getElementById('baLabel');
+      if (!before || typeof gsap === 'undefined') return;
+      gsap.registerPlugin(ScrollTrigger);
+      var tl = gsap.timeline({
+        scrollTrigger: { trigger: '.ba-section', start: 'top top', end: '+=200%', pin: true, scrub: 0.5, anticipatePin: 1 }
+      });
+      tl.fromTo(before, { clipPath: 'inset(0 0 0 0)' }, { clipPath: 'inset(0 100% 0 0)', duration: 1, ease: 'none' });
+      tl.fromTo(label, { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: 'power2.out' }, 0.5);
+    })();
+
+</body>
+</html>

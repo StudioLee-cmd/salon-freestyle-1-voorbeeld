@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — LuxeGlow Voorbeeld | Schoonheidssalon Amsterdam</title>
+  <meta name="description" content="Lees de laatste tips over huidverzorging, wellness trends en schoonheidsadvies van de experts bij LuxeGlow Amsterdam.">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+</head>
+<body>
+
+<!-- ============ HEADER ============ -->
+<header class="header" id="header">
+  <div class="container">
+    <a href="index.html" class="logo">Luxe<span>Glow</span></a>
+    <nav class="nav" id="nav">
+      <a href="index.html#diensten">Behandelingen</a>
+      <a href="index.html#over-ons">Over Ons</a>
+      <a href="index.html#galerij">Galerij</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="blog.html" style="color:var(--rose-gold);">Blog</a>
+      <a href="index.html#contact" class="nav-cta">Afspraak Maken</a>
+    </nav>
+    <div class="nav-toggle" id="navToggle" aria-label="Menu openen">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</header>
+
+<!-- ============ BLOG HERO ============ -->
+<section class="blog-hero">
+  <div class="container">
+    <div class="reveal">
+      <div style="display:inline-flex;align-items:center;gap:8px;color:var(--rose-gold);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:16px;">
+        <i data-lucide="book-open" style="width:16px;height:16px;"></i>
+        Onze Blog
+      </div>
+      <h1>Schoonheid &amp; <span class="accent">Inspiratie</span></h1>
+      <p>Tips, trends en adviezen van onze huidtherapeuten. Voor een stralende huid, elke dag.</p>
+    </div>
+    <div class="blog-categories reveal">
+      <span class="blog-cat active">Alles</span>
+      <span class="blog-cat">Huidverzorging</span>
+      <span class="blog-cat">Wellness</span>
+      <span class="blog-cat">Trends</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLOG GRID ============ -->
+<section class="section" style="background:var(--plum);padding-top:0;">
+  <div class="container">
+    <div class="blog-grid">
+
+      <!-- Article 1 -->
+      <article class="blog-card reveal stagger-1">
+        <div class="blog-card-img">
+          <img src="images/hero.jpg" alt="Huidverzorgingsroutine voor de lente" loading="lazy">
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-tag">Huidverzorging</span>
+            <span><i data-lucide="calendar" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>8 april 2026</span>
+          </div>
+          <h3>De Perfecte Huidverzorgingsroutine voor de Lente</h3>
+          <p>Met de seizoenswisseling verandert ook je huid. Onze huidtherapeuten delen hun favoriete tips voor een frisse, stralende teint dit voorjaar. Van lichte moisturizers tot SPF-bescherming.</p>
+          <a href="#" class="blog-read-more">
+            Lees meer <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Article 2 -->
+      <article class="blog-card reveal stagger-2">
+        <div class="blog-card-img">
+          <img src="images/about.jpg" alt="Aromatherapie en wellness behandelingen" loading="lazy">
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-tag">Wellness</span>
+            <span><i data-lucide="calendar" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>3 april 2026</span>
+          </div>
+          <h3>Aromatherapie: Meer dan Alleen een Lekker Geurtje</h3>
+          <p>Ontdek de helende kracht van essentiele olien. Hoe lavendel, rozemarijn en ylang-ylang niet alleen ontspannen, maar ook je huid verbeteren en stress verminderen.</p>
+          <a href="#" class="blog-read-more">
+            Lees meer <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Article 3 -->
+      <article class="blog-card reveal stagger-3">
+        <div class="blog-card-img">
+          <img src="images/detail.jpg" alt="Anti-aging trends 2026" loading="lazy">
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-tag">Trends</span>
+            <span><i data-lucide="calendar" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>28 maart 2026</span>
+          </div>
+          <h3>Anti-Aging in 2026: De Nieuwste Behandelingen</h3>
+          <p>Van microneedling tot LED-lichttherapie. Welke innovatieve anti-aging behandelingen zijn echt effectief? Onze specialisten scheiden feit van fictie.</p>
+          <a href="#" class="blog-read-more">
+            Lees meer <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
+          </a>
+        </div>
+      </article>
+
+      <!-- Article 4 -->
+      <article class="blog-card reveal stagger-4">
+        <div class="blog-card-img">
+          <img src="images/craft.jpg" alt="Microblading en permanente make-up tips" loading="lazy">
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-meta">
+            <span class="blog-tag">Huidverzorging</span>
+            <span><i data-lucide="calendar" style="width:12px;height:12px;display:inline;vertical-align:middle;margin-right:4px;"></i>22 maart 2026</span>
+          </div>
+          <h3>Microblading vs. Poederwenkbrauwen: Wat Past bij Jou?</h3>
+          <p>Beide technieken geven prachtige resultaten, maar welke is geschikt voor jouw huidtype? Lees onze uitgebreide vergelijking en maak de juiste keuze voor jouw look.</p>
+          <a href="#" class="blog-read-more">
+            Lees meer <i data-lucide="arrow-right" style="width:14px;height:14px;"></i>
+          </a>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<section class="cta-section">
+  <div class="cta-bg"></div>
+  <div class="cta-overlay"></div>
+  <div class="container">
+    <div class="reveal">
+      <h2>Benieuwd naar Meer <span class="accent">Tips</span>?</h2>
+      <p>Volg ons op social media voor dagelijkse schoonheidstips of boek een gratis consultatie bij onze salon.</p>
+      <a href="index.html#contact" class="btn-primary" style="margin:0 auto;">
+        <i data-lucide="calendar" style="width:18px;height:18px;"></i>
+        Gratis Consultatie
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">Luxe<span>Glow</span></a>
+        <p>Al meer dan 12 jaar de bestemming voor premium huidverzorging en schoonheidsbehandelingen in Amsterdam. Waar wetenschap en luxe samenkomen.</p>
+        <div style="display:flex;gap:12px;margin-top:20px;">
+          <a href="#" style="width:36px;height:36px;background:rgba(201,150,126,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--rose-gold);"><i data-lucide="instagram" style="width:16px;height:16px;"></i></a>
+          <a href="#" style="width:36px;height:36px;background:rgba(201,150,126,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--rose-gold);"><i data-lucide="facebook" style="width:16px;height:16px;"></i></a>
+          <a href="#" style="width:36px;height:36px;background:rgba(201,150,126,0.12);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--rose-gold);"><i data-lucide="phone" style="width:16px;height:16px;"></i></a>
+        </div>
+      </div>
+      <div>
+        <h4>Behandelingen</h4>
+        <ul>
+          <li><a href="index.html#diensten">Gezichtsbehandeling</a></li>
+          <li><a href="index.html#diensten">Huidverjonging</a></li>
+          <li><a href="index.html#diensten">Permanente Make-up</a></li>
+          <li><a href="index.html#diensten">Waxing</a></li>
+          <li><a href="index.html#diensten">Wimper Styling</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Informatie</h4>
+        <ul>
+          <li><a href="index.html#over-ons">Over Ons</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="index.html#faq">Veelgestelde Vragen</a></li>
+          <li><a href="index.html#reviews">Reviews</a></li>
+          <li><a href="#">Privacy</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#"><i data-lucide="map-pin" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:6px;"></i>Keizersgracht 123, Amsterdam</a></li>
+          <li><a href="tel:0201234567"><i data-lucide="phone" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:6px;"></i>020-123 4567</a></li>
+          <li><a href="mailto:info@luxeglow.nl"><i data-lucide="mail" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:6px;"></i>info@luxeglow.nl</a></li>
+          <li><a href="#"><i data-lucide="clock" style="width:14px;height:14px;display:inline;vertical-align:middle;margin-right:6px;"></i>Ma-Za: 9:00 - 18:00</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 LuxeGlow Voorbeeld. Alle rechten voorbehouden.</p>
+      <p>Website door <a href="https://www.studiolee.nl" target="_blank" rel="noopener">StudioLee</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- ============ STUDIOLEE BADGE ============ -->
+<a href="https://www.studiolee.nl/schoonheidssalons" class="studiolee-badge" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+  Website door StudioLee
+</a>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  lucide.createIcons();
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Header
+  const header = document.getElementById('header');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Mobile nav
+  const navToggle = document.getElementById('navToggle');
+  const nav = document.getElementById('nav');
+  navToggle.addEventListener('click', () => nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => nav.classList.remove('open'));
+  });
+
+  // Scroll reveals
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 85%',
+      onEnter: () => el.classList.add('active'),
+    });
+  });
+
+  // Blog cards entrance animation
+  gsap.from('.blog-card', {
+    y: 80,
+    opacity: 0,
+    stagger: 0.12,
+    duration: 0.8,
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: '.blog-grid',
+      start: 'top 80%',
+    }
+  });
+
+  // Blog card hover
+  document.querySelectorAll('.blog-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+      gsap.to(card, { y: -8, duration: 0.3, ease: 'power2.out' });
+    });
+    card.addEventListener('mouseleave', () => {
+      gsap.to(card, { y: 0, duration: 0.3, ease: 'power2.out' });
+    });
+  });
+
+  // Category filter interaction
+  document.querySelectorAll('.blog-cat').forEach(cat => {
+    cat.addEventListener('click', () => {
+      document.querySelectorAll('.blog-cat').forEach(c => c.classList.remove('active'));
+      cat.classList.add('active');
+    });
+  });
+
+  // Parallax on CTA
+  gsap.to('.cta-bg', {
+    yPercent: 20,
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '.cta-section',
+      start: 'top bottom',
+      end: 'bottom top',
+      scrub: true,
+    }
+  });
+});
+</script>
+
+</body>
+</html>
